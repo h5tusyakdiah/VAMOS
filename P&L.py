@@ -126,3 +126,35 @@ if hitung:
     #st.markdown(f"BEP = **{round(BEP)}** %")
     #st.markdown(f"Bunker_Sailing = **{round(Bunker_Sailing)}**, Port_Days = **{round(Port_Days)}** , Total_cost = **{round(Total_cost)}**  %")
 
+
+#-----------------
+# Disable certificate verification (Not necessary always)
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+from gspread_pandas import Spread,Client
+from google.oauth2 import service_account
+# Application Related Module
+import pubchempy as pcp
+from pysmiles import read_smiles
+# 
+import networkx as nx
+
+
+# Create a Google Authentication connection object
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+credentials = service_account.Credentials.from_service_account_info(
+                st.secrets["gcp_service_account"], scopes = scope)
+client = Client(scope=scope,creds=credentials)
+spreadsheetname = "Rekap Vessel Performance"
+spread = Spread(spreadsheetname,client = client)
+
+# Check the connection
+st.write(spread.url)
+
+sh = client.open(spreadsheetname)
+worksheet_list = sh.worksheets()
+
+
