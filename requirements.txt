@@ -1,3 +1,5 @@
+# requirements.txt
+gsheetsdb==x.x.x
 streamlit==1.16.0
 sqldf
 pyodbc
