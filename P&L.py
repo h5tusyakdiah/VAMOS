@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from dateutil.relativedelta import relativedelta
-import datetime as dt
 from openpyxl import Workbook
+import datetime
 
 st.set_page_config(page_title="VAMOS", 
                    page_icon=":bar_chart:", 
@@ -188,17 +188,17 @@ elif selected == "Vessel Selection":
     #parameter1
     col0, col00, col000, col0000, col00000 = st.columns([1, 1, 1, 1, 1])
     with col0:
-        nama_kapal_input = st.selectbox("Ship Class",["KM Pusri Indonesia 1", "KM Julianto Moeliodihardjo"])
-    with col00:
         loading_port = st.selectbox("Loading Port",["Banyuwangi", "Belawan", "Bengkulu","Bontang","Cigading",
                                                     "Cilacap","Dumai","Gresik","Lampung","Lembar", "Lhokseumawe",
                                                     "Makassar","Padang","Palembang","Semarang","Sorong","Surabaya"])
-    with col000:
+    with col00:
         discharge_port = st.selectbox("Discharge Port",["Banyuwangi", "Belawan", "Bengkulu","Bontang","Cigading",
                                                     "Cilacap","Dumai","Gresik","Lampung","Lembar", "Lhokseumawe",
                                                     "Makassar","Padang","Palembang","Semarang","Sorong","Surabaya"])
+    with col000:
+        berat_ton = st.number_input("Berat", value =0,min_value=0, help="Ton")
     with col0000:
-        voyage = st.selectbox("Voyage",[1, 2, 3, 4, 5, 6 , 7 , 8 ,  9 , 10])
+        loading_date = st.date_input( "Loading Date", datetime.date(2023, 7, 6))
 
     co1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     with co1:
@@ -206,32 +206,30 @@ elif selected == "Vessel Selection":
     with col2:
         COB = st.number_input("COB", help="Bahan bakar ketika berlayar", value=7000.0, step=1e-6, format="%.1f")
     with col3:
-        Discharge_rate = st.number_input("Discharge rate",value =4000,min_value=0, help="xxx")
+        Fixed_Cost = st.number_input("Fixed Cost", value=30000000,min_value=0, help="xxx")
     with col4:
-        Loading_rate = st.number_input("Loading rate",value =2400,min_value=0, help="xxx")
+        ME_Fuel_Cons = st.number_input("ME Fuel Cons",value =12,min_value=0, help="xxx")
     with col5:
-        Freetime_1 = st.number_input("Free Time at PoL", value=0,min_value=0, help="xxx")
+        AE_Fuel_Cons = st.number_input("AE Fuel Cons",value =1.4,min_value=0.0, help="xxx", step=1e-6, format="%.1f")
+
 
     #parameter part 2
     col6, col7, col8, col9, col10 = st.columns([1, 1, 1, 1, 1])
     with col6:
-        Freetime_2 = st.number_input("Free Time at PoD", value=0,min_value=0, help="xxx")
+        Port_Charges = st.number_input("Port Charges",value =60000000,min_value=0, help="xxx")  
     with col7:
-        Fixed_Cost = st.number_input("Fixed Cost", value=30000000,min_value=0, help="xxx")
+        LSFO_Price = st.number_input("LSFO Price", value=19700,min_value=0, help="LSFO or HSD")
     with col8:
-        ME_Fuel_Cons = st.number_input("ME Fuel Cons",value =12,min_value=0, help="xxx")
-    with col9:
-        AE_Fuel_Cons = st.number_input("AE Fuel Cons",value =1.4,min_value=0.0, help="xxx", step=1e-6, format="%.1f")
-    with col10:
-        Port_Charges = st.number_input("Port Charges",value =60000000,min_value=0, help="xxx")   
+        HSD_Price = st.number_input("HSD Price", value=20700, min_value=0, help="xxx")
+
 
     #parameter part 3
 
-    co111, col12, col13, col14, col15 = st.columns([1, 1, 1, 1, 1])
-    with co111:
-        LSFO_Price = st.number_input("LSFO Price", value=19700,min_value=0, help="LSFO or HSD")
-    with col12:
-        HSD_Price = st.number_input("HSD Price", value=20700,min_value=0, help="xxx")
+    #co111, col12, col13, col14, col15 = st.columns([1, 1, 1, 1, 1])
+    #with co111:
+    #    LSFO_Price = st.number_input("LSFO Price", value=19700,min_value=0, help="LSFO or HSD")
+    #with col12:
+    #    HSD_Price = st.number_input("HSD Price", value=20700,min_value=0, help="xxx")
 
     #RUN CALCULATION
 
