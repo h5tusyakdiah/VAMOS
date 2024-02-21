@@ -159,23 +159,23 @@ if selected == "Vessel Performance":
         Cost_accuracy  = Total_cost/Total_cost_2 *100
 
         #Output
-        #st.markdown(f"Kapal **{(nama_kapal_input)}** memiliki nilai")
-        #st.markdown(f"nilai **{(Bunker_Sailing)}**, **{(Bunker_at_Port)}**, **{(Bunker_Waiting)}**")
+        st.markdown(f"Kapal **{(nama_kapal_input)}** memiliki nilai")
+        st.markdown(f"nilai **{(Bunker_Sailing)}**, **{(Bunker_at_Port)}**, **{(Bunker_Waiting)}**")
 
-        #co1A, colB, colC, colD, colE = st.columns([1, 1, 1, 1, 1])
-        #co1A.metric(label = "Remaining Time",
-        #            value = (f"{round(Remaining_Time,2)}"))
-        #colB.metric(label = "Time accuracy",
-        #            value = (f"{round(Time_accuracy,2)} %"))
-        #colC.metric(label = "Speed",
-        #            value = (f"{round(Speed)} %"))
-        #colD.metric(label = "P & L",
-        #            value = (f"Rp. {round(P_and_L_actual)}"))
-        #colE.metric(label = "Cost Accuracy",
-        #            value = (f"{round(Cost_accuracy,2)} %"))
-        
-        url = "https://batics.pupuk-indonesia.com/"
-        st.markdown(f"Lihat hasil disini [link](%s)" % url)
+        co1A, colB, colC, colD, colE = st.columns([1, 1, 1, 1, 1])
+        co1A.metric(label = "Remaining Time",
+                    value = (f"{round(Remaining_Time,2)}"))
+        colB.metric(label = "Time accuracy",
+                    value = (f"{round(Time_accuracy,2)} %"))
+        colC.metric(label = "Speed",
+                    value = (f"{round(Speed)} %"))
+        colD.metric(label = "P & L",
+                    value = (f"Rp. {round(P_and_L_actual)}"))
+        colE.metric(label = "Cost Accuracy",
+                    value = (f"{round(Cost_accuracy,2)} %"))
+
+        url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
+        st.markdown(f"Dashboard performance" % url)
         
 
 # IF DATASET
