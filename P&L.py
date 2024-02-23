@@ -62,12 +62,12 @@ if selected == "Vessel Performance":
     with col4:
         Loading_rate = st.number_input("Loading rate",value =2400,min_value=0, help="xxx")
     with col5:
-        Freetime_1 = st.number_input("Free Time at PoL", value=0,min_value=0, help="xxx")
+        Freetime_1 = st.number_input("Free Time at PoL", value=2,min_value=0, help="xxx")
 
     #parameter part 2
     col6, col7, col8, col9, col10 = st.columns([1, 1, 1, 1, 1])
     with col6:
-        Freetime_2 = st.number_input("Free Time at PoD", value=0,min_value=0, help="xxx")
+        Freetime_2 = st.number_input("Free Time at PoD", value=1,min_value=0, help="xxx")
     with col7:
         Fixed_Cost = st.number_input("Fixed Cost", value=30000000,min_value=0, help="xxx")
     with col8:
