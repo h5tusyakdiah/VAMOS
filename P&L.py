@@ -94,7 +94,10 @@ if selected == "Vessel Performance":
         Vessel_List = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='Vessel List')
         OD_Matrix = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='OD Matrix')
         Time_Sheet = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='Input - Time Sheet')
-
+        st.table(Vessel_List)
+        st.table(OD_Matrix)
+        st.table(Time_Sheet)
+      
         #calculating
     #ACTUAL
         PoL_PoD = OD_Matrix[(OD_Matrix.port1 == loading_port) & (OD_Matrix.port2 == discharge_port)]
