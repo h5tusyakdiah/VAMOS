@@ -177,4 +177,4 @@ if selected == "Vessel Performance":
                     value = (f"{round(Cost_accuracy,2)} %"))
 
         url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
-        st.markdown(f"Lihat hasil disini [link](%s)" % url)
+        st.markdown(f"Executive Dashboard Monitoring [link](%s)" % url)
