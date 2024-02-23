@@ -5,6 +5,7 @@ from pathlib import Path
 from dateutil.relativedelta import relativedelta
 from openpyxl import Workbook
 import datetime
+now_datetime = datetime.datetime.now()
 
 st.set_page_config(page_title="VAMOS", 
                    page_icon=":bar_chart:", 
