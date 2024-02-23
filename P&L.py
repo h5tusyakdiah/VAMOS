@@ -94,15 +94,13 @@ if selected == "Vessel Performance":
         Vessel_List = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='Vessel List')
         OD_Matrix = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='OD Matrix')
         Time_Sheet = pd.read_excel('Rekap Vessel Performance.xlsx', sheet_name='Input - Time Sheet')
-        st.table(Vessel_List)
-        st.table(OD_Matrix)
-        st.table(Time_Sheet)
       
         #calculating
     #ACTUAL
         PoL_PoD = OD_Matrix[(OD_Matrix.port1 == loading_port) & (OD_Matrix.port2 == discharge_port)]
         Distance = PoL_PoD.distance.sum()
-
+        print("success: ", now_datetime)
+        
         Service_speed = 6.7
         Sailing_Days = Time_Sheet[(Time_Sheet.Vessel_Name == nama_kapal_input) & (Time_Sheet.PoL == loading_port) 
                                 & (Time_Sheet.PoD == discharge_port) & (Time_Sheet.Voyage == voyage)]
@@ -113,12 +111,13 @@ if selected == "Vessel Performance":
                                 & (Time_Sheet.PoD == discharge_port) & (Time_Sheet.Voyage == voyage)]
         Port_Days = Port_Days[(Port_Days.Activity == "Loading") | (Port_Days.Activity == "Discharge")]
         Port_Days = Port_Days.Dur.sum()
+        print("success: ", now_datetime)
 
         Waiting_Days = Time_Sheet[(Time_Sheet.Vessel_Name == nama_kapal_input) & (Time_Sheet.PoL == loading_port) 
                                 & (Time_Sheet.PoD == discharge_port) & (Time_Sheet.Voyage == voyage)]
         Waiting_Days = Waiting_Days[(Waiting_Days.Activity == "Waiting Loading") | (Waiting_Days.Activity == "Waiting Discharge")]
         Waiting_Days = Waiting_Days.Dur.sum()
-
+        print("success: ", now_datetime)
         Total_Days = Time_Sheet[(Time_Sheet.Vessel_Name == nama_kapal_input) & (Time_Sheet.PoL == loading_port) 
                                 & (Time_Sheet.PoD == discharge_port) & (Time_Sheet.Voyage == voyage)]
         Total_Days = Total_Days.Dur.sum()
@@ -132,7 +131,7 @@ if selected == "Vessel Performance":
         Total_cost = Bunker_Sailing + Bunker_at_Port + Bunker_Waiting + Port_Charges + Total_Fixed_cost
         Revenue = Freight_ton*COB
         P_and_L = Revenue + Total_cost
-
+        print("success: ", now_datetime)
         #-------------------------------------------------------------------
         #IDEAL
         Distance_2 = Distance 
@@ -147,7 +146,7 @@ if selected == "Vessel Performance":
         Bunker_Sailing_2 = ((Sailing_Days_2*LSFO_Price*ME_Fuel_Cons_2*1000)+(Sailing_Days_2*LSFO_Price*AE_Fuel_Cons_2*1000))*-1
         Bunker_at_Port_2 = (Port_Days_2*HSD_Price*AE_Fuel_Cons_2*1000*2*-1)
         Bunker_Waiting_2 = (Waiting_Days_2*HSD_Price*AE_Fuel_Cons_2*1000*-1)
-
+        print("success: ", now_datetime)
         Port_Charges_2 = 8000*COB*-1
         Fixed_Cost_2 = 815000000/30
         Total_Fixed_cost_2 = Total_Days_2*Fixed_Cost_2*-1
@@ -160,7 +159,7 @@ if selected == "Vessel Performance":
         Speed = Sailing_Days_2/Sailing_Days *100
         P_and_L_actual	= P_and_L
         Cost_accuracy  = Total_cost/Total_cost_2 *100
-
+        print("success: ", now_datetime)
         #Output
         st.markdown(f"Kapal **{(nama_kapal_input)}** memiliki nilai")
         st.markdown(f"nilai **{(Bunker_Sailing)}**, **{(Bunker_at_Port)}**, **{(Bunker_Waiting)}**")
