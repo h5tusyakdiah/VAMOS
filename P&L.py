@@ -132,7 +132,8 @@ if selected == "Vessel Performance":
         Total_cost = Bunker_Sailing + Bunker_at_Port + Bunker_Waiting + Port_Charges + Total_Fixed_cost
         Revenue = Freight_ton*COB
         P_and_L = Revenue + Total_cost
-        print("success: ", now_datetime)
+        st.markdown(f"nilai **{(Total_Fixed_cost)}**, **{(Total_cost)}**, **{(Revenue)}**")
+      
         #-------------------------------------------------------------------
         #IDEAL
         Distance_2 = Distance 
@@ -160,7 +161,6 @@ if selected == "Vessel Performance":
         Speed = Sailing_Days_2/Sailing_Days *100
         P_and_L_actual	= P_and_L
         Cost_accuracy  = Total_cost/Total_cost_2 *100
-        print("success: ", now_datetime)
         #Output
         st.markdown(f"Kapal **{(nama_kapal_input)}** memiliki nilai")
         st.markdown(f"nilai **{(Bunker_Sailing)}**, **{(Bunker_at_Port)}**, **{(Bunker_Waiting)}**")
