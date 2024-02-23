@@ -163,18 +163,25 @@ if selected == "Vessel Performance":
         #Output
 
         co1A, colB, colC, colD, colE = st.columns([1, 1, 1, 1, 1])
-        co1A.metric(label = "Remaining Time",
-                    value = (f"{round(Remaining_Time,2)}"))
-        colB.metric(label = "Time accuracy",
-                    value = (f"{round(Time_accuracy,2)} %"))
-        #colC.metric(label = "Speed",
-        #            value = (f"{round(Speed)} %"))
-        colC.metric(label = "Speed",
-                    value = (f"{round(Speed,2)} %"))
-        colD.metric(label = "P & L",
-                    value = (f"Rp. {round(P_and_L_actual)}"))
-        colE.metric(label = "Cost Accuracy",
-                    value = (f"{round(Cost_accuracy,2)} %"))
+        with co1A:
+                st.container()
+                st.metric(label="Remaining Time", value=f"{round(Remaining_Time, 2)}")
+        
+        with colB:
+            st.container()
+            st.metric(label="Time accuracy", value=f"{round(Time_accuracy, 2)} %")
+    
+        with colC:
+            st.container()
+            st.metric(label="Speed", value=f"{round(Speed, 2)} %")
+    
+        with colD:
+            st.container()
+            st.metric(label="P & L", value=f"Rp. {round(P_and_L_actual)}")
+    
+        with colE:
+            st.container()
+            st.metric(label="Cost Accuracy", value=f"{round(Cost_accuracy, 2)} %")
 
         url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
         st.markdown(f"Executive Dashboard Monitoring [:bar_chart:](%s)" % url)
