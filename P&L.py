@@ -179,11 +179,4 @@ if selected == "Vessel Performance":
         url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
         st.markdown(f"Executive Dashboard Monitoring [link](%s)" % url)
         st.markdown(f"<a href='{url}'><img src='https://example.com/icon.png' width='50'></a>", unsafe_allow_html=True)
-
-        a = """Some text
-        
-        ![Cool Image](images/DWAFig22.png)
-        
-        Some more text"""
-        
-        st.markdown(a)
+        st.title(":"peach":"🍑": my banana title") 
