@@ -132,8 +132,7 @@ if selected == "Vessel Performance":
         Total_cost = Bunker_Sailing + Bunker_at_Port + Bunker_Waiting + Port_Charges + Total_Fixed_cost
         Revenue = Freight_ton*COB
         P_and_L = Revenue + Total_cost
-        st.markdown(f"nilai **{(Sailing_Days)}**,**{(Total_Days)}**,**{(Total_Fixed_cost)}**, **{(Total_cost)}**, **{(Revenue)}**")
-      
+
         #-------------------------------------------------------------------
         #IDEAL
         Distance_2 = Distance 
@@ -162,8 +161,6 @@ if selected == "Vessel Performance":
         P_and_L_actual	= P_and_L
         Cost_accuracy  = Total_cost/Total_cost_2 *100
         #Output
-        st.markdown(f"Kapal **{(nama_kapal_input)}** memiliki nilai")
-        st.markdown(f"nilai **{(Bunker_Sailing)}**, **{(Bunker_at_Port)}**, **{(Bunker_Waiting)}**")
 
         co1A, colB, colC, colD, colE = st.columns([1, 1, 1, 1, 1])
         co1A.metric(label = "Remaining Time",
@@ -172,14 +169,12 @@ if selected == "Vessel Performance":
                     value = (f"{round(Time_accuracy,2)} %"))
         #colC.metric(label = "Speed",
         #            value = (f"{round(Speed)} %"))
-        colB.metric(label = "Speed",
+        colC.metric(label = "Speed",
                     value = (f"{round(Speed,2)} %"))
         colD.metric(label = "P & L",
                     value = (f"Rp. {round(P_and_L_actual)}"))
         colE.metric(label = "Cost Accuracy",
                     value = (f"{round(Cost_accuracy,2)} %"))
 
-       # url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
-        #st.markdown(f"Dashboard performance" % url)
-        url = "https://batics.pupuk-indonesia.com/"
+        url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
         st.markdown(f"Lihat hasil disini [link](%s)" % url)
