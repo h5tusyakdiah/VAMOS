@@ -170,8 +170,10 @@ if selected == "Vessel Performance":
                     value = (f"{round(Remaining_Time,2)}"))
         colB.metric(label = "Time accuracy",
                     value = (f"{round(Time_accuracy,2)} %"))
-        colC.metric(label = "Speed",
-                    value = (f"{round(Speed)} %"))
+        #colC.metric(label = "Speed",
+        #            value = (f"{round(Speed)} %"))
+        colB.metric(label = "Speed",
+                    value = (f"{round(Speed,2)} %"))
         colD.metric(label = "P & L",
                     value = (f"Rp. {round(P_and_L_actual)}"))
         colE.metric(label = "Cost Accuracy",
