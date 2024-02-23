@@ -178,5 +178,4 @@ if selected == "Vessel Performance":
 
         url = "https://tableau.pupuk-indonesia.com/#/views/DashboardVesselPerformance/Dashboard1"
         st.markdown(f"Executive Dashboard Monitoring [:bar_chart:](%s)" % url)
-        st.markdown(f"<a href='{url}'>:bar_chart:</a>", unsafe_allow_html=True)
-        st.markdown(f"[Executive Dashboard Monitoring]({url}) :bar_chart:", unsafe_allow_html=True)
+
