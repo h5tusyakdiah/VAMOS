@@ -132,7 +132,7 @@ if selected == "Vessel Performance":
         Total_cost = Bunker_Sailing + Bunker_at_Port + Bunker_Waiting + Port_Charges + Total_Fixed_cost
         Revenue = Freight_ton*COB
         P_and_L = Revenue + Total_cost
-        st.markdown(f"nilai **{(Total_Fixed_cost)}**, **{(Total_cost)}**, **{(Revenue)}**")
+        st.markdown(f"nilai **{(Total_Days)}**,**{(Total_Fixed_cost)}**, **{(Total_cost)}**, **{(Revenue)}**")
       
         #-------------------------------------------------------------------
         #IDEAL
