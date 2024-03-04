@@ -67,7 +67,7 @@ if selected == "Vessel Performance":
          # Membuat DataFrame dari data
         df_input = pd.DataFrame(df)
   
-        edit_df = st.data_editor(df_input)
+        edit_df = st.data_editor(df_input,num_rows="dynamic")
         
         #RUN CALCULATION
 
