@@ -1,5 +1,6 @@
 # requirements.txt
-streamlit
+Python ==3.10
+streamlit == 1.28.0
 sqldf
 pyodbc
 statistics
