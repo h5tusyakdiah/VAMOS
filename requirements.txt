@@ -1,5 +1,4 @@
 # requirements.txt
-Python ==3.8
 streamlit == 1.28.0
 sqldf
 pyodbc
