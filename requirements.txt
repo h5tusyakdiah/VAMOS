@@ -4,7 +4,7 @@ pyodbc
 statistics
 pandas
 numpy
-openpyxl
+openpyxl==3.1.2
 streamlit_option_menu
 python-time
 pip==22.3.1
